@@ -15,6 +15,8 @@
 //    document.getElementById('phonePrice').innerText = "$" + phonePrice;
 // })
 
+
+
 document.getElementById('phonePlus').addEventListener('click',function(){
    handleProductChange (true);
 });
@@ -39,23 +41,45 @@ function handleProductChange (isPlus){
 
                   //case area 
 
-   document.getElementById('casePlus').addEventListener('click',function(){
-      let caseInput = document.getElementById ('caseInput')
-      let caseCount = parseInt (caseInput.value);
-      let caseNewCount = caseCount + 1;
+       document.getElementById('casePlus').addEventListener('click',function(){
+         handleCaseChange  (true);
+          });
+      document.getElementById('caseMinus').addEventListener('click',function(){
+         handleCaseChange (false);
+          });
+
+
+ function handleCaseChange (isPlus){
+    let caseInput=  document.getElementById('caseInput');
+    caseCount = parseInt(caseInput.value);
+
+   if (isPlus == true){
+      caseNewCount = caseCount +1;
+   }
+   if (isPlus == false && caseCount > 0 ){
+      caseNewCount = caseCount -1;
+   }
       caseInput.value = caseNewCount;
       let casePrice = caseNewCount *59;
-      document.getElementById ('casePrice').innerText = '$' + casePrice;
-    });
+      document.getElementById('casePrice').innerText = "$" + casePrice;
+ }
 
 
+   // document.getElementById('casePlus').addEventListener('click',function(){
+   //    let caseInput = document.getElementById ('caseInput')
+   //    let caseCount = parseInt (caseInput.value);
+   //    let caseNewCount = caseCount + 1;
+   //    caseInput.value = caseNewCount;
+   //    let casePrice = caseNewCount *59;
+   //    document.getElementById ('casePrice').innerText = '$' + casePrice;
+   //  });
 
-      document.getElementById('caseMinus').addEventListener('click',function(){
-         let caseInput = document.getElementById ('caseInput')
-         let caseCount = parseInt (caseInput.value);
-         let caseNewCount = caseCount -1  ;
-         caseInput.value = caseNewCount;
-         let casePrice = caseNewCount *59;
-         document.getElementById ('casePrice').innerText = '$' + casePrice;        
-       });
 
+   //    document.getElementById('caseMinus').addEventListener('click',function(){
+   //       let caseInput = document.getElementById ('caseInput')
+   //       let caseCount = parseInt (caseInput.value);
+   //       let caseNewCount = caseCount -1  ;
+   //       caseInput.value = caseNewCount;
+   //       let casePrice = caseNewCount *59;
+   //       document.getElementById ('casePrice').innerText = '$' + casePrice;        
+   //     });
